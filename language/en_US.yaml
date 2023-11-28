@@ -1,0 +1,17 @@
+# translated by GoldStudios-de
+# main
+start_message: "Hooray! Our web server has successfully started a port party on port {port} 🎉. The debug mode is now set to fun mode at {debug}. Let's dance with the code!"
+# error types
+error_type_1: "An error occurred. Please try again."
+error_type_2: "The page has been blocked."
+error_type_3: "The page could not be loaded properly."
+# error 404
+error_404_title: "Page Not Found"
+error_404_description: "The page you requested does not exist or has been moved."
+# upload
+upload_disabled_message: "The upload function has been disabled by an administrator."
+upload_disabled_title: "Uploads Disabled"
+upload_wait_title: "The page is not available for {wait} seconds"
+upload_wait_description: "You need to wait {wait} seconds before you can upload again."
+upload_wait_description2: "Your uploaded files will be displayed in the dashboard."
+upload_wait_description3: "Your file has been uploaded to: https://goldstudios.de/' {test}"

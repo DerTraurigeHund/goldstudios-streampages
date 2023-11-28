@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mein Dashboard</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            background-color: #444;
+            padding: 0.5em;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0.5em 1em;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #555;
+        }
+
+        section {
+            padding: 2em;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 1em;
+            margin: 1em;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #ccc;
+        }
+
+            th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Mein Dashboard</h1>
+        <p>Hallo {{ session['username'] }}! Dein Rank ist {{ session['rank'] }}.</p>
+    </header>
+
+    <nav>
+        <a href="#">Startseite</a>
+        <a href="logout">Logout</a>
+        <a href="#">Einstellungen</a>
+    </nav>
+
+    <section class="container">
+        <div class="card">
+            <h2>Your Uploads</h2>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>File Name</th>
+                        <th>Upload Date</th>
+                        <th>download link</th>
+                        <!-- Weitere Spalten nach Bedarf -->
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for upload in uploads %}
+                        <tr>
+                            <td>{{ upload[2] }}</td>
+                            <td>{{ upload[4] }}</td>
+                            <td><a href="{{ upload[5] }}" download>Herunterladen</a></td>
+                            <!-- Weitere Spalten nach Bedarf -->
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card">
+            <h2>Statistik 2</h2>
+            <p>Weitere Informationen oder Diagramme können hier platziert werden.</p>
+            <p>{{ test }}</p>
+        </div>
+    </section>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+# translated by ChatGPT
+# main
+start_message: "Hourra ! Notre serveur web a lancé avec succès une joyeuse fête de ports sur le port {port} 🎉. Le mode de débogage est maintenant réglé en mode amusant sur {debug}. Dansons avec le code !"
+# error types
+error_type_1: "Une erreur s'est produite. Veuillez réessayer."
+error_type_2: "La page a été bloquée."
+error_type_3: "La page n'a pas pu être chargée correctement."
+# error 404
+error_404_title: "Page non trouvée"
+error_404_description: "La page que vous avez demandée n'existe pas ou a été déplacée."
+# upload
+upload_disabled_message: "La fonction de téléchargement a été désactivée par un administrateur."
+upload_disabled_title: "Téléchargements désactivés"
+upload_wait_title: "La page n'est pas disponible pendant {wait} secondes"
+upload_wait_description: "Vous devez attendre {wait} secondes avant de pouvoir télécharger à nouveau."
+upload_wait_description2: "Vos fichiers téléchargés seront affichés dans le tableau de bord."
+upload_wait_description3: "Votre fichier a été téléchargé sur : https://goldstudios.de/' {test}"

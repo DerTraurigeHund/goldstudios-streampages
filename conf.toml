@@ -1,0 +1,45 @@
+[server]
+debug = true
+port = 8080
+host = "0.0.0.0"
+log_file = "logs/{date}.log"
+language = "en_US"
+
+[admin_settings]
+enable_settings_site = true
+enable_admin_rank_on_site = true
+username = "admin"
+password = "non"
+enable_settings_for_server = true
+enable_settings_for_upload = true
+enable_settings_for_session = true
+enable_settings_for_mysql = true
+enable_settings_for_admin_settings = true
+
+[session]
+secret_key = "your_secret_key"
+
+[mysql]
+host = "mysql-host"
+user = "mysql-user"
+password = "mysql-password"
+db = "mysql-db"
+
+[upload]
+upload_dir = "uploads/{user_id}/"
+enable_uploads = true
+maxFileSize = 10737418240
+maxFileSize_default = 107374183
+maxFileSize_starter = 268435456
+maxFileSize_aboment = 536870912
+maxFileSize_supper-abo = 1073741824
+maxFileSize_support = 1073741824
+maxFileSize_moderator = 5368709120
+maxFileSize_developer = 5368709120
+maxFileSize_admin = 10737418240
+disable_upload_cooldown_for_admin = false
+disable_upload_cooldown_for_developer = false
+disable_upload_cooldown_for_moderator = false
+file_live_time = 604800
+upload_cooldown = 30
+

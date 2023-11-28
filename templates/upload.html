@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Datei-Upload</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 40px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #007BFF;
+    }
+
+    form {
+      margin-top: 20px;
+    }
+
+    input[type="file"] {
+      padding: 10px;
+      margin-right: 10px;
+    }
+
+    input[type="submit"] {
+      padding: 10px 20px;
+      background-color: #007BFF;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+
+    p {
+      margin-top: 20px;
+      color: #28A745;
+    }
+
+    #progress-container {
+      display: none;
+      margin-top: 20px;
+    }
+
+    #progress-bar {
+      width: 0%;
+      height: 20px;
+      background-color: #007BFF;
+    }
+  </style>
+</head>
+<body>
+  <h1>Datei-Upload</h1>
+  <form id="upload-form" method="post" enctype="multipart/form-data">
+    <input type="file" name="file" id="file-input">
+    <input type="submit" value="Datei hochladen">
+  </form>
+  <div id="progress-container">
+    <div id="progress-bar"></div>
+  </div>
+    <p>{{ message }}</p>
+  {% if countdown_message %}
+    <p>{{ countdown_message }}</p>
+  {% endif %}
+  <p>Beachte, die maximale Dateigröße für deinen Rang ist {{ max_file_size }} {{ max_file_size_unit }}</p>
+
+  <script>
+    document.getElementById('upload-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var fileInput = document.getElementById('file-input');
+      var progressBar = document.getElementById('progress-bar');
+      var progressContainer = document.getElementById('progress-container');
+  
+      var formData = new FormData();
+      formData.append('file', fileInput.files[0]);
+  
+      var xhr = new XMLHttpRequest();
+  
+      xhr.open('POST', '/upload', true);
+  
+      xhr.upload.onprogress = function(e) {
+        if (e.lengthComputable) {
+          var percentage = (e.loaded / e.total) * 100;
+          progressBar.style.width = percentage + '%';
+  
+          // Überprüfe, ob der Fortschrittsbalken 100% erreicht hat
+          if (percentage === 100) {
+            // Seite neu laden, wenn der Fortschrittsbalken vollständig ist
+            location.reload();
+          }
+        }
+      };
+  
+      xhr.onload = function() {
+        if (xhr.status === 200) {
+          // Hier können Sie die Antwort vom Server verarbeiten, wenn nötig
+          var response = JSON.parse(xhr.responseText);
+          console.log(response);
+        } else {
+          console.error('Fehler beim Datei-Upload');
+        }
+      };
+  
+      xhr.send(formData);
+  
+      // Zeige den Fortschrittsbalken an
+      progressContainer.style.display = 'block';
+    });
+  </script>
+</body>
+</html>

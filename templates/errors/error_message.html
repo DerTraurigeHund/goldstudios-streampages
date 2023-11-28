@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fehlermeldung</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .error-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 50%;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: #e44d26;
+        }
+
+        p {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <h1>{{ error_type }}</h1>
+        <p>{{ error_message }}</p>
+        {% if error_message_line2 %}
+        <p>{{ error_message_line2 }}</p>
+        {% endif %}
+        {% if error_message_line3 %}
+        <p>{{ error_message_line3 }}</p>
+        {% endif %}
+        {% if return_url %}
+        <a href="{{ return_url }}">Back</a>
+        {% endif %}
+    </div>
+</body>
+</html>
