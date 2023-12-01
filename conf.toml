@@ -20,10 +20,10 @@ enable_settings_for_admin_settings = true
 secret_key = "your_secret_key"
 
 [mysql]
-host = "mysql-host"
-user = "mysql-user"
-password = "mysql-password"
-db = "mysql-db"
+host = "localhost"
+user = "GitHub"
+password = "GitHub-password"
+db = "GitHub_db"
 
 [upload]
 upload_dir = "uploads/{user_id}/"
